@@ -1,5 +1,5 @@
-ru\yandex\praktikum\pageObjects\RegistrationPage.class
+ru\yandex\praktikum\api\BaseClient.class
 ru\yandex\praktikum\model\Client.class
-ru\yandex\praktikum\pageObjects\AuthPage.class
-ru\yandex\praktikum\API\BaseClient.class
-ru\yandex\praktikum\pageObjects\MainPage.class
+ru\yandex\praktikum\pageobjects\AuthPage.class
+ru\yandex\praktikum\pageobjects\MainPage.class
+ru\yandex\praktikum\pageobjects\RegistrationPage.class
