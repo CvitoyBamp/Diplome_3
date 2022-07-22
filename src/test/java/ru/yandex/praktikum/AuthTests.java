@@ -1,16 +1,17 @@
 package ru.yandex.praktikum;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.yandex.praktikum.API.BaseClient;
+import ru.yandex.praktikum.api.BaseClient;
 import ru.yandex.praktikum.model.Client;
-import ru.yandex.praktikum.pageObjects.AuthPage;
-import ru.yandex.praktikum.pageObjects.MainPage;
-import ru.yandex.praktikum.pageObjects.RegistrationPage;
+import ru.yandex.praktikum.pageobjects.AuthPage;
+import ru.yandex.praktikum.pageobjects.MainPage;
+import ru.yandex.praktikum.pageobjects.RegistrationPage;
 
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
@@ -22,6 +23,7 @@ public class AuthTests extends BaseClient{
     private MainPage mainPage;
     private Client registrationCorrectData;
 
+    @Step("Initialization of test data")
     @Before
     public void createData(){
         registrationPage = page(RegistrationPage.class);
@@ -31,12 +33,14 @@ public class AuthTests extends BaseClient{
         BaseClient.createClient(registrationCorrectData);
     }
 
+    @Step("Deleting test data after tests")
     @After
     public void deleteClient(){
         BaseClient.deleteClient(registrationCorrectData);
         close();
     }
 
+    @Step("User authentication verification")
     @Test
     @DisplayName("Auth user from registration page")
     @Description("Should auth user from registration page")
@@ -49,6 +53,7 @@ public class AuthTests extends BaseClient{
         authPage.checkAuth();
     }
 
+    @Step("User authentication verification")
     @Test
     @DisplayName("Auth user from main page")
     @Description("Should auth user from main page")
@@ -61,6 +66,7 @@ public class AuthTests extends BaseClient{
         authPage.checkAuth();
     }
 
+    @Step("User authentication verification")
     @Test
     @DisplayName("Auth user from personal account")
     @Description("Should auth user from personal account")
@@ -73,6 +79,7 @@ public class AuthTests extends BaseClient{
         authPage.checkAuth();
     }
 
+    @Step("User authentication verification")
     @Test
     @DisplayName("Auth user from forgot password page")
     @Description("Should auth user from forgot password page")

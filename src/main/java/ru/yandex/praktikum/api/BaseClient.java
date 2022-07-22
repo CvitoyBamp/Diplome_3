@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.API;
+package ru.yandex.praktikum.api;
 
 import ru.yandex.praktikum.model.Client;
 import io.restassured.response.Response;
